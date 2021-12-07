@@ -9,10 +9,10 @@ public class On {
     }
 
     public static Consumer<Throwable> error() {
-        return e -> System.out.println(e.getMessage());
+        return e -> System.out.println("error " + e.getMessage());
     }
 
     public static Runnable complete() {
-        return () -> System.out.println("completed");
+        return () -> System.out.println("complete");
     }
 }
