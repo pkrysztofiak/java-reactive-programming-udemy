@@ -15,6 +15,7 @@ public class NameProducer implements Consumer<FluxSink<String>> {
     }
 
     public void produce() {
-        sink.next(Faker.instance().name().firstName());
+        String threadName = Thread.currentThread().getName();
+        sink.next(threadName + ":" + Faker.instance().name().firstName());
     }
 }

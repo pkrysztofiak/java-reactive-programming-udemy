@@ -6,11 +6,12 @@ import reactor.core.publisher.Flux;
 
 import java.util.concurrent.TimeUnit;
 
-public class Lecture02FluxCreateRefactor {
+public class Lecture08FluxPush {
 
     public static void main(String[] args) throws InterruptedException {
+
         NameProducer producer = new NameProducer();
-        Flux.create(producer).subscribe(new Subscriber<>());
+        Flux.push(producer).subscribe(new Subscriber<>());
 
         Runnable runnable = producer::produce;
         for (int i = 0; i < 10; i++) {
