@@ -21,16 +21,16 @@ public class Subscriber<T> implements org.reactivestreams.Subscriber<T> {
 
     @Override
     public void onNext(T next) {
-        System.out.println(name + "next=" + next);
+        System.out.println(name + "Received=" + next);
     }
 
     @Override
     public void onError(Throwable t) {
-        System.out.println(name + "error=" + t.getMessage());
+        System.out.println(name + "Error=" + t.getMessage());
     }
 
     @Override
     public void onComplete() {
-        System.out.println(name + "complete");
+        System.out.println(name + "Complete");
     }
 }
