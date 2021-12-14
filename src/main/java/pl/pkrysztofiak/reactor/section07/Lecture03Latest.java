@@ -1,6 +1,7 @@
 package pl.pkrysztofiak.reactor.section07;
 
 import pl.pkrysztofiak.reactor.utils.Subscriber;
+import reactor.core.publisher.BufferOverflowStrategy;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 
@@ -23,6 +24,8 @@ public class Lecture03Latest {
                         }
                     }
                 })
+                .log()
+//                .onBackpressureBuffer(1, BufferOverflowStrategy.DROP_LATEST)
                 .onBackpressureLatest()
                 .publishOn(Schedulers.boundedElastic())
                 .doOnNext(i -> {
